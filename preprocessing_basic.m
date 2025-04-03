@@ -26,10 +26,17 @@
 % 10) Save preprocessed dataset
 
 % --> EXTERNAL TOOLS TO INSTALL
-% EEGlab and Fieltrip are distributed with this code, stored under the
-% external_functions folder. Aternatively you can download and install them
+% EEGlab and Fieltrip are NOT distributed with this code. Install them
 % on your system and add the paths to matlab.
 
+% EEGLAB install:  https://eeglab.org/tutorials/01_Install/Install.html
+% -- Once EEglab installed, you will need to download the TESA plugin. From
+% the eeglab interface go to : FILE-->MANAGE EEGLAB EXTENSIONS--> SEARCH TESA TOOLBOX AND INSTALL.
+
+% FIELDTRIP install: https://www.fieldtriptoolbox.org/download/
+% Fieltrip in only used for future analyses and not for the present
+% preprocessing. IThere is no need to install if you are only runing this
+% preprocessing code.
 
 %% ADDPATHS 
 clear all;
