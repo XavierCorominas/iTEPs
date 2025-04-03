@@ -1,4 +1,4 @@
-%% Quantifying the impact of preprocessing pipeline in early iTEPs.
+%% Preprocessing pipeline for early iTEPs.
 
 % DRCMR 2025 - XCT - BrainStim Methods group
 
