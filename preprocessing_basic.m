@@ -59,8 +59,8 @@ addpath('/home/xavi/Documents/PROJECTS/iTEPS/eeg_analyses_tool/TMS_EEG_preproces
 eeglab;
 
 % Define file to load 
-name_dataset = 'TMSEEG_X35488_S27_B70_BiphasicPPC_95RMT_APPA.vhdr';
-path_dataset = '/home/xavi/Documents/PROJECTS/iTEPS/eeg_analyses_tool/data/X35488/';
+name_dataset = 'AC_STATE_6.1.90CO25.vhdr';
+path_dataset = '/mnt/projects/iTEPs/iTEPs_State/Pilots/RAW/EEG_Raw/AC/';
 
 %load file
 EEG = pop_loadbv(path_dataset, name_dataset);
@@ -291,8 +291,8 @@ mean_channel_data_all = mean(mean_channel_data, 1);
 
 % Plot vertical grey bar from 0 ms to 1.5 ms
 x_patch = [0 2 2 0];  % X-coordinates (start and end of the bar)
-y_patch = [-5 -5 5 5];     % Y-coordinates (full height of the plot)
-patch(x_patch, y_patch, [0.7 0.7 0.7], 'EdgeColor', 'none', 'FaceAlpha', 0.8,'HandleVisibility', 'off'); % Grey with transparency
+y_patch = [y_limits(1) y_limits(1) y_limits(2) y_limits(2)]; % Y-coordinates based on current y-limits
+patch(x_patch, y_patch, [0.7 0.7 0.7], 'EdgeColor', 'none', 'FaceAlpha', 0.8, 'HandleVisibility', 'off'); % Grey with transparency
 
 % Plot with correct time axis
 plot(time_axis, mean_channel_data_fast, 'b', 'LineWidth', 4);
@@ -302,7 +302,7 @@ plot(time_axis, mean_channel_data_all, 'k', 'LineWidth', 4);
 % Formatting
 xlim([-5 10]); % Set x-axis limits
 xticks(-5:5:10); % Set x-axis ticks at -5, 0, 5, 10
-ylim([-6 6]); % Set y-axis limits (if needed)
+%ylim([-6 6]); % Set y-axis limits (if needed)
 set(gca, 'FontSize', 20, 'FontName', 'Arial');
 
 % Labels and Legend
@@ -311,7 +311,7 @@ ylabel('Amplitude (µV)', 'FontSize', 20, 'FontName', 'Arial');
 legend({'500-1000Hz', '2-500Hz', '2-1000Hz'}, 'FontSize', 20, 'Location', 'northeast');
 title('Time series EEG Signal Comparison', 'FontSize', 20, 'FontWeight', 'bold', 'FontName', 'Arial');
 
-
+%{
 % Add "TMS Pulse" text at (0, maxY) where maxY is a bit above the plot
 maxY = 3.25; % Adjust this value if needed
 text(-1.25, maxY, 'TMS', 'FontSize', 20, 'FontWeight', 'bold', 'Color', [0, 0, 0], 'HorizontalAlignment', 'center');
@@ -323,7 +323,7 @@ annotation('arrow', ...
     'Color', [0, 0, 0], 'LineWidth', 4, 'HeadStyle', 'vback2'); % Customize arrow
 
 hold off;
-
+%}
 
 %%
 
