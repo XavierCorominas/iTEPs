@@ -257,10 +257,9 @@ EEG_fast.data = EEG_all.data - EEG_slow.data;
 
 %
 % Plot time series of channels under the stimulation location; mean of 3 channels on the left motor cortex: 17, 16 , 6) ;
-
 figure;
 hold on
-set(gcf, 'Position', [100, 100, 717, 492]); % [x y width height]
+set(gcf, 'Position', [100, 100, 900, 492]); % Manually adjust figure size [x y width height]
 
 % Define time vector (assuming 250 points and 15 ms total)
 num_points = size(EEG_fast.data, 2); % Number of time points
@@ -288,12 +287,6 @@ mean_channel_data(2,:) = data(16,:);
 mean_channel_data(3,:) = data(17,:);
 mean_channel_data_all = mean(mean_channel_data, 1);
 
-
-% Plot vertical grey bar from 0 ms to 1.5 ms
-x_patch = [0 2 2 0];  % X-coordinates (start and end of the bar)
-y_patch = [y_limits(1) y_limits(1) y_limits(2) y_limits(2)]; % Y-coordinates based on current y-limits
-patch(x_patch, y_patch, [0.7 0.7 0.7], 'EdgeColor', 'none', 'FaceAlpha', 0.8, 'HandleVisibility', 'off'); % Grey with transparency
-
 % Plot with correct time axis
 plot(time_axis, mean_channel_data_fast, 'b', 'LineWidth', 4);
 plot(time_axis, mean_channel_data_slow, 'r', 'LineWidth', 4);
@@ -302,14 +295,33 @@ plot(time_axis, mean_channel_data_all, 'k', 'LineWidth', 4);
 % Formatting
 xlim([-5 10]); % Set x-axis limits
 xticks(-5:5:10); % Set x-axis ticks at -5, 0, 5, 10
-%ylim([-6 6]); % Set y-axis limits (if needed)
 set(gca, 'FontSize', 20, 'FontName', 'Arial');
+
+% Get current y-axis limits and adjust them (add +1 to the upper limit)
+y_limits = ylim; 
+ylim([y_limits(1), y_limits(2) + 1]);  % Increase the upper limit by 1
+
+% Plot vertical grey bar from 0 ms to 1.5 ms
+x_patch = [0 2 2 0];  % X-coordinates (start and end of the bar)
+y_patch = [y_limits(1) y_limits(1) y_limits(2)+1 y_limits(2)+1]; % Y-coordinates based on updated y-limits
+patch(x_patch, y_patch, [0.7 0.7 0.7], 'EdgeColor', 'none', 'FaceAlpha', 0.8, 'HandleVisibility', 'off'); % Grey with transparency
+
+%
+% Plot a black dotted line at y = 0
+plot([-5 10], [0 0], 'k--', 'LineWidth', 2); % Dotted black line at y = 0
 
 % Labels and Legend
 xlabel('Time (ms)', 'FontSize', 20, 'FontName', 'Arial');
 ylabel('Amplitude (µV)', 'FontSize', 20, 'FontName', 'Arial');
-legend({'500-1000Hz', '2-500Hz', '2-1000Hz'}, 'FontSize', 20, 'Location', 'northeast');
+
+% Adjust the legend location to be outside the plot area
+legend({'500-1000Hz', '2-500Hz', '2-1000Hz'}, 'FontSize', 20, 'Location', 'northeastoutside', 'Orientation', 'vertical');
+
+% Title
 title('Time series EEG Signal Comparison', 'FontSize', 20, 'FontWeight', 'bold', 'FontName', 'Arial');
+
+hold off
+
 
 %{
 % Add "TMS Pulse" text at (0, maxY) where maxY is a bit above the plot
@@ -335,4 +347,9 @@ EEG = pop_saveset( EEGfast, 'filename',[name_dataset,'_fast_oscill_cleaned_pipel
 
 
 %% END
+
+path_dataset = '/home/xavi/Documents/PROJECTS/iTEPS/eeg_analyses_tool/TMS_EEG_preprocessing/'
+
+EEG = pop_saveset( EEGfast, 'filename',[name_dataset,'_fast_oscill_cleaned_pipeline_1.set'],'filepath',[path_dataset]);
+
 
