@@ -254,7 +254,10 @@ hold off
 % Set the number of dimentions accordingly
 % You might need to go one below the previous value
 % Here we only remove eye-blinks and horizontal movements: to make your
-% choise, if unsure check: https://www-sciencedirect-com.proxy.insermbiblio.inist.fr/science/article/pii/S1053811916305845
+% choise, if unsure check: 
+% https://link.springer.com/article/10.1007/s11517-011-0748-9
+% https://www.sciencedirect.com/science/article/abs/pii/S105381191400620X?via%3Dihub
+% https://www.sciencedirect.com/science/article/pii/S1053811916305845?via%3Dihub
 
 EEG = pop_tesa_pcacompress( EEG, 'compVal', 60, 'plot','on' ); % Set the number of dimentions here
 EEG = pop_tesa_fastica( EEG, 'approach', 'symm', 'g', 'tanh', 'stabilization', 'off' );
@@ -534,7 +537,10 @@ hold off
 % Set the number of dimentions accordingly
 % You might need to go one below the previous value
 % Here we  remove persistent muscular artifacts and noise
-% choise, if unsure check: https://www-sciencedirect-com.proxy.insermbiblio.inist.fr/science/article/pii/S1053811916305845
+% choise, if unsure check: 
+% https://link.springer.com/article/10.1007/s11517-011-0748-9
+% https://www.sciencedirect.com/science/article/abs/pii/S105381191400620X?via%3Dihub
+% https://www.sciencedirect.com/science/article/pii/S1053811916305845?via%3Dihub
 
 EEG = pop_tesa_pcacompress( EEG, 'compVal', 55, 'plot','on' ); % Set the number of dimentions here
 EEG = pop_tesa_fastica( EEG, 'approach', 'symm', 'g', 'tanh', 'stabilization', 'off' );
