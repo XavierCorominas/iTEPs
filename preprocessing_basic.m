@@ -348,8 +348,5 @@ EEG = pop_saveset( EEGfast, 'filename',[name_dataset,'_fast_oscill_cleaned_pipel
 
 %% END
 
-path_dataset = '/home/xavi/Documents/PROJECTS/iTEPS/eeg_analyses_tool/TMS_EEG_preprocessing/'
-
-EEG = pop_saveset( EEGfast, 'filename',[name_dataset,'_fast_oscill_cleaned_pipeline_1.set'],'filepath',[path_dataset]);
 
 
