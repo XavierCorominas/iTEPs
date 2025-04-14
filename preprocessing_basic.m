@@ -120,10 +120,110 @@ xlabel('Time (ms)', 'FontSize', 24, 'FontName', 'Arial');
 ylabel('Amplitude (µV)', 'FontSize', 24, 'FontName', 'Arial');
 %title('EEG Signal', 'FontSize', 24, 'FontName', 'Arial');
 
+
+%% Plot raw data
+
+% Data
+EEGr = EEG;
+
+% Demean
+EEGr = pop_rmbase( EEGr, [-500 499.9] ,[]); % De meaning assuming a epoch from -500 499.9
+EEGr = pop_rmbase( EEGr, [-110 -10] ,[]);
+
+% Mean of Channels of itnerest
+data_to_plot (1,:,:) = EEGr.data(6,:,:);
+data_to_plot (2,:,:) = EEGr.data(16,:,:);
+data_to_plot (3,:,:) = EEGr.data(17,:,:);
+mean_roi_raw = mean(data_to_plot,1);
+
+% Figure
+figure;
+set(gcf, 'Position', [100, 100, 2000, 600]); % Manually adjust figure size [x y width height]
+
+subplot(1,2,1)
+
+% Plot individual sensors (mean over trials), in grey
+h1 = plot(EEGr.times, mean(EEGr.data, 3)', 'Color', [0.5 0.5 0.5]); 
+hold on;
+
+% Plot mean of selected ROI channels, in red
+h2 = plot(EEGr.times, mean(mean_roi_raw, 3)', 'r'); 
+
+% Axes settings
+xlim([-5 10]);
+ylim([-80 80]);
+set(gca, 'FontSize', 24, 'FontName', 'Arial');
+xlabel('Time (ms)', 'FontSize', 24, 'FontName', 'Arial');
+ylabel('Amplitude (µV)', 'FontSize', 24, 'FontName', 'Arial');
+title('Raw EEG Signal 2-50000Hz', 'FontSize', 24, 'FontName', 'Arial');
+
+% Legend
+% Create dummy lines for legend
+dummy1 = plot(NaN, NaN, 'Color', [0.5 0.5 0.5], 'LineWidth', 2.5);
+dummy2 = plot(NaN, NaN, 'r', 'LineWidth', 2.5);
+
+% Add legend using dummies
+legend([dummy1, dummy2], {'All sensors', 'Mean left M1 sensors'}, 'FontSize', 18);
+set(gca,'FontName','Arial','fontsize',20,'FontWeight','bold','LineWidth',1.5)
+
+hold off;
+
+
+
+% Plot 2: raw data 2-2000Hz
+% Filter raw data
+EEGrf = pop_tesa_filtbutter( EEG, 0.2, 2000, 4, 'bandpass' );
+
+% Demean
+EEGrf = pop_rmbase( EEGrf, [-500 499.9] ,[]); % De meaning assuming a epoch from -500 499.9
+EEGrf = pop_rmbase( EEGrf, [-110 -10] ,[]);
+
+
+% Mean of Channels of itnerest
+data_to_plot2 (1,:,:) = EEGrf.data(6,:,:);
+data_to_plot2 (2,:,:) = EEGrf.data(16,:,:);
+data_to_plot2 (3,:,:) = EEGrf.data(17,:,:);
+mean_roi_raw_fil = mean(data_to_plot2,1);
+
+% Figure
+subplot(1,2,2)
+h1 = plot(EEGrf.times, mean(EEGrf.data, 3)', 'Color', [0.5 0.5 0.5]); 
+xlim([-5 10]);
+ylim([-80 80])
+set(gca, 'FontSize', 24, 'FontName', 'Arial');
+xlabel('Time (ms)', 'FontSize', 24, 'FontName', 'Arial');
+ylabel('Amplitude (µV)', 'FontSize', 24, 'FontName', 'Arial');
+title('Raw EEG Signal 2-2000Hz', 'FontSize', 24, 'FontName', 'Arial');
+hold on
+h2 = plot(EEGr.times, mean(mean_roi_raw_fil, 3)', 'r'); 
+
+% Legend
+% Create dummy lines for legend
+dummy1 = plot(NaN, NaN, 'Color', [0.5 0.5 0.5], 'LineWidth', 2.5);
+dummy2 = plot(NaN, NaN, 'r', 'LineWidth', 2.5);
+
+% Add legend using dummies
+legend([dummy1, dummy2], {'All sensors', 'Mean left M1 sensors'}, 'FontSize', 18);
+set(gca,'FontName','Arial','fontsize',20,'FontWeight','bold','LineWidth',1.5)
+
+hold off;
+
 %% Trials rejection - 2.3 (de mean the data - substract the mean value of the data from each data point to remove DC offset and prepare data for filtering)
 
 EEG = pop_rmbase( EEG, [-500 499.9] ,[]); % De meaning assuming a epoch from -500 499.9
 
+
+% Figures
+figure; pop_timtopo(EEG, [-5  10], [2.3         4.5         4.8], 'ERP data and scalp maps');
+%
+figure;
+plot(EEG.times, mean(EEG.data, 3)', 'b'); 
+xlim([-5 10]);
+% ylim([-100 100])
+set(gca, 'FontSize', 24, 'FontName', 'Arial');
+xlabel('Time (ms)', 'FontSize', 24, 'FontName', 'Arial');
+ylabel('Amplitude (µV)', 'FontSize', 24, 'FontName', 'Arial');
+%title('EEG Signal', 'FontSize', 24, 'FontName', 'Arial');
 %% 3. REMOVE TMS ARTIFACT
 
 % TMS artefact lengths in ms
@@ -348,5 +448,8 @@ EEG = pop_saveset( EEGfast, 'filename',[name_dataset,'_fast_oscill_cleaned_pipel
 
 %% END
 
+path_dataset = '/home/xavi/Documents/PROJECTS/iTEPS/eeg_analyses_tool/TMS_EEG_preprocessing/'
+
+EEG = pop_saveset( EEGfast, 'filename',[name_dataset,'_fast_oscill_cleaned_pipeline_1.set'],'filepath',[path_dataset]);
 
 
