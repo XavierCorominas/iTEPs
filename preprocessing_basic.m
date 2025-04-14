@@ -76,7 +76,7 @@ eeglab redraw
 
 
 % Figures
-figure; pop_timtopo(EEG, [-5  10], [2.3         4.5         4.8], 'ERP data and scalp maps');
+figure; pop_timtopo(EEG, [-5  10], [2.3         3         4.8], 'ERP data and scalp maps');
 %
 figure;
 plot(EEG.times, mean(EEG.data, 3)', 'b'); 
@@ -109,7 +109,7 @@ eeglab redraw
 
 
 % Figures
-figure; pop_timtopo(EEG, [-5  10], [2.3         4.5         4.8], 'ERP data and scalp maps');
+figure; pop_timtopo(EEG, [-5  10], [2.3         3         4.8], 'ERP data and scalp maps');
 %
 figure;
 plot(EEG.times, mean(EEG.data, 3)', 'b'); 
@@ -208,13 +208,56 @@ set(gca,'FontName','Arial','fontsize',20,'FontWeight','bold','LineWidth',1.5)
 
 hold off;
 
+%{
+% In case you want topographies: modify data file to plot accordingly:
+% Define the time points you want to plot (in ms)
+time_points = [2.3, 3.5, 4.8]; % Example time points
+
+% Number of time points
+num_plots = length(time_points);
+
+% Create a figure
+figure;
+set(gcf, 'Position', [100, 100, 2000, 900]); % Adjust figure size to fit both plots
+
+% Create a subplot for topoplots (this will take up the top half of the figure)
+subplot(2, 1, 1); % 2 rows, 1 column (top row)
+% Loop over each time point for topography plots
+for i = 1:num_plots
+    time_point = time_points(i); % Get the current time point in ms
+
+    % Find the nearest time index
+    [~, time_idx] = min(abs(EEG.times - time_point)); % Find the closest index
+    
+    % Create a subplot for the current time point (topographies on the left)
+    % We're using `subplot(1, num_plots, i)` for all topoplots together in one big subplot.
+    subplot(1, num_plots, i); % In the 1 row, 'num_plots' columns (placing topoplots in one row)
+    
+    % Check if the selected index is valid and there is data at that time
+    if ~isempty(time_idx) && ~all(isnan(EEG.data(:, time_idx))) 
+        % Plot topography
+        topoplot(EEG.data(:, time_idx), EEG.chanlocs, 'electrodes', 'on');
+        title([num2str(EEG.times(time_idx)) ' ms'],'FontSize', 15); % Title with the actual time point
+        % Add colorbar with custom settings
+        colorbar; % Add colorbar
+        caxis([-20 20]); % Set color limits (adjust based on your data range)
+    else
+        % If no valid data, plot a message
+        topoplot([], EEG.chanlocs, 'electrodes', 'off'); % Empty topography
+        title('No Data'); % Indicate no data for this time point
+    end
+end
+
+
+
+%}
 %% Trials rejection - 2.3 (de mean the data - substract the mean value of the data from each data point to remove DC offset and prepare data for filtering)
 
 EEG = pop_rmbase( EEG, [-500 499.9] ,[]); % De meaning assuming a epoch from -500 499.9
 
 
 % Figures
-figure; pop_timtopo(EEG, [-5  10], [2.3         4.5         4.8], 'ERP data and scalp maps');
+figure; pop_timtopo(EEG, [-5  10], [2.3         3         4.8], 'ERP data and scalp maps');
 %
 figure;
 plot(EEG.times, mean(EEG.data, 3)', 'b'); 
@@ -224,6 +267,7 @@ set(gca, 'FontSize', 24, 'FontName', 'Arial');
 xlabel('Time (ms)', 'FontSize', 24, 'FontName', 'Arial');
 ylabel('Amplitude (µV)', 'FontSize', 24, 'FontName', 'Arial');
 %title('EEG Signal', 'FontSize', 24, 'FontName', 'Arial');
+
 %% 3. REMOVE TMS ARTIFACT
 
 % TMS artefact lengths in ms
@@ -235,7 +279,7 @@ eeglab redraw
 
 
 % Figures
-figure; pop_timtopo(EEG, [-5  10], [2.3         4.5         4.8], 'ERP data and scalp maps');
+figure; pop_timtopo(EEG, [-5  10], [2.3         3         4.8], 'ERP data and scalp maps');
 %
 figure;
 plot(EEG.times, mean(EEG.data, 3)', 'b'); 
@@ -264,7 +308,7 @@ badC
 eeglab redraw
 
 % Figures
-figure; pop_timtopo(EEG, [-5  10], [2.3         4.5         4.8], 'ERP data and scalp maps');
+figure; pop_timtopo(EEG, [-5  10], [2.3         3         4.8], 'ERP data and scalp maps');
 %
 figure;
 plot(EEG.times, mean(EEG.data, 3)', 'b'); 
@@ -305,7 +349,7 @@ eeglab redraw
 
 
 % Figures
-figure; pop_timtopo(EEG, [-5  10], [2.3         4.5         4.8], 'ERP data and scalp maps');
+figure; pop_timtopo(EEG, [-5  10], [2.3         3         4.8], 'ERP data and scalp maps');
 %
 figure;
 plot(EEG.times, mean(EEG.data, 3)', 'b'); 
