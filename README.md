@@ -9,7 +9,7 @@
 
 Danish Research Center for Magnetic Resonance (DRCMR) - 2025 - https://www.drcmr.dk/
 
-The present repository contains **example preprocessing TMS-EEG scripts** to recover immediate transcranial evoked potentials (iTEPS).
+The present repository contains **example preprocessing TMS-EEG scripts** to recover immediate transcranial evoked potentials (iTEP) from raw EEG recordings.
 
 A **basic preprocessing** (e.g., preprocessing_basic.m) is necessary and sufficient when TMS-EEG data is not contaminated with large physiological and non-physiological artifacts, and iTEPS are visible during evoked responses observed online during TMS experiments. A **advanced preprocessing** (e.g., preprocessing_advanced.m) is necessary and sufficient when TMS-EEG data is contaminated with large muscular or other types of artifacts overimposing to the iTEPS.
 
