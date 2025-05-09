@@ -2,7 +2,7 @@
 
 **Xavier Corominas-Teruel, Mikkel Malling Beck, Lasse Christiansen**
 
-Danish Research Center for Magnetic Resonance (DRCMR) - 2025
+Danish Research Center for Magnetic Resonance (DRCMR) - 2025 - https://www.drcmr.dk/
 
 The present repository contains example scripts to preprocess TMS-EEG data to uncover immediate transcranial evoked potentials (iTEPS).
 
@@ -11,6 +11,7 @@ A **basic preprocessing** (e.g., preprocessing_basic.m) is necessary and suffici
 For more information about iTEPS, please see:
 
 https://www.brainstimjrnl.com/article/S1935-861X(24)00114-1/fulltext
+
 https://www.biorxiv.org/content/10.1101/2025.02.14.638272v1.full
 
 
