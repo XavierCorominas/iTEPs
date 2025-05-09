@@ -2,6 +2,11 @@
 
 **Xavier Corominas-Teruel, Mikkel Malling Beck, Lasse Christiansen**
 
+**Repository under construction**.
+
+
+
+
 Danish Research Center for Magnetic Resonance (DRCMR) - 2025 - https://www.drcmr.dk/
 
 The present repository contains example scripts to preprocess TMS-EEG data to uncover immediate transcranial evoked potentials (iTEPS).
@@ -17,6 +22,5 @@ https://www.biorxiv.org/content/10.1101/2025.02.14.638272v1.full
 
 The scripts are currently under testing and may change in the future.
 
-**Repository under construction**
 
 Some functions in the External Functions folder are contributed by collaborators (**Martina Bracco and Tuomas P. Mutanen**). When using the scripts, please ensure you provide the appropriate citations to their work outlined in the main code.
