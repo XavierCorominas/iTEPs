@@ -22,5 +22,3 @@ https://www.biorxiv.org/content/10.1101/2025.02.14.638272v1.full
 
 The scripts are currently under testing and may change in the future.
 
-
-Some functions in the External Functions folder are contributed by collaborators (**Martina Bracco and Tuomas P. Mutanen**). When using the scripts, please ensure you provide the appropriate citations to their work outlined in the main code.
