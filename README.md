@@ -13,6 +13,8 @@ The present repository contains **example preprocessing TMS-EEG scripts** to rec
 
 A **basic preprocessing** (e.g., preprocessing_basic.m) is necessary and sufficient when TMS-EEG data is not contaminated with large physiological and non-physiological artifacts, and iTEPS are visible during evoked responses observed online during TMS experiments. A **advanced preprocessing** (e.g., preprocessing_advanced.m) is necessary and sufficient when TMS-EEG data is contaminated with large muscular or other types of artifacts overimposing to the iTEPS.
 
+![TEP_all](https://github.com/user-attachments/assets/a4351ea5-c5f3-4b15-85e0-179de874d004)
+
 For more information about iTEPS, please see:
 
 https://www.brainstimjrnl.com/article/S1935-861X(24)00114-1/fulltext
