@@ -7,7 +7,7 @@
 % The preprocessing is inspired in the following references:
 %https://www.sciencedirect.com/science/article/pii/S2666166725000280?via%3Dihub
 %https://www.sciencedirect.com/science/article/pii/S1053811921005486
-%https://www.brainstimjrnl.com/article/S1935-861X(23)01696-0/fulltext
+%https://www.sciencedirect.com/science/article/pii/S1935861X23016960
 
 % --> GENERAL INFO:
 % The current preprocessing pieplpile is intended to provide a elaborated and meticulous eeg
