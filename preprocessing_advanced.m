@@ -206,7 +206,7 @@ EEG = EEGLAB_remove_and_interpolate_recharging_artifact(EEG, 1); % 1 + single pu
 %% 8.*******First round of ICA --> identify oscular movements
 
 
-% Resample for ica:
+% Resample for ica if necessary:
 EEG = pop_resample( EEG, 25000);
 eeglab redraw
 
@@ -259,16 +259,17 @@ hold off
 % https://www.sciencedirect.com/science/article/abs/pii/S105381191400620X?via%3Dihub
 % https://www.sciencedirect.com/science/article/pii/S1053811916305845?via%3Dihub
 
-EEG = pop_tesa_pcacompress( EEG, 'compVal', 60, 'plot','on' ); % Set the number of dimentions here
-EEG = pop_tesa_fastica( EEG, 'approach', 'symm', 'g', 'tanh', 'stabilization', 'off' );
+EEG2ICA = pop_tesa_pcacompress( EEG2ICA, 'compVal', 60, 'plot','on' ); % Set the number of dimentions here
+EEG2ICA = pop_tesa_fastica( EEG2ICA, 'approach', 'symm', 'g', 'tanh', 'stabilization', 'off' );
  
 
 %% Plot the independent components following ICA. Here the user can verify the results of ICA
 % as well as manually classify components. For details on classifying components, see
 % https://nigelrogasch.gitbook.io/tesa-user-manual/remove_minimise_tms_muscle_activity/auto_comp_select
-EEG = pop_tesa_compplot( EEG,'figSize','medium','plotTimeX',...
+EEG2ICA = pop_tesa_compplot( EEG2ICA,'figSize','medium','plotTimeX',...
     [-500 499],'plotFreqX',[1 100], 'freqScale','log', 'saveWeights','off' );
 
+EEG = EEG2ICA;
 
 
 %Plot data
