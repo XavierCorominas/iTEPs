@@ -1,6 +1,6 @@
 # **TMS-EEG Preprocessing Pipelines for iTEPS**
 
-**Xavier Corominas-Teruel, Mikkel Malling Beck, Lasse Christiansen**
+**Xavier Corominas-Teruel,Yufei Song, Mikkel Malling Beck, Lasse Christiansen**
 
 **Repository under construction**.
 
