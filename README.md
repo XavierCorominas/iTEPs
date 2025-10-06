@@ -23,5 +23,5 @@ https://www.brainstimjrnl.com/article/S1935-861X(24)00114-1/fulltext
 
 https://www.sciencedirect.com/science/article/pii/S1053811925004495
 
-
+No warranty or guarantee of any kind is provided. All rights reserved.
 
