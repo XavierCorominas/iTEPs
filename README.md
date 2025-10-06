@@ -17,7 +17,7 @@ In the case the TMS pulse artifact wants to be removed from the dataset, a **bas
 
 For more information about iTEPS, please see:
 
-[https://www.brainstimjrnl.com/article/S1935-861X(24)00114-1/fulltext]
+https://www.brainstimjrnl.com/article/S1935-861X(24)00114-1/fulltext
 
 https://www.sciencedirect.com/science/article/pii/S1053811925004495
 
