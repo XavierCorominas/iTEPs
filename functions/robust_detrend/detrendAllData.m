@@ -21,9 +21,8 @@ function [Xdt]=detrendAllData(Xorig, ts, n, excludeInterval)
 % Description in Hernandez-Pavon, Julio C., et al. "Removing artifacts ...
 % from TMS-evoked EEG: A methods review and a unifying theoretical ...
 % framework." Journal of Neuroscience Methods 376 (2022): 109591.
-% .........................................................................
-% 29 March 2021 : Johanna Metsomaa, BNP, University of Tuebingen  
-% .........................................................................
+
+
 [C, T, R]=size(Xorig);
 
 Xdt=zeros(C,T,R);
@@ -32,3 +31,4 @@ for i=1:C
         [yestim, ~]=removePolyTrendlineTEP_robust(permute(Xorig(i,:,1:end),[2 3 1]), excludeInterval(1), excludeInterval(2), ts,n, false);
         Xdt(i,:,:)=yestim;
 end
+
