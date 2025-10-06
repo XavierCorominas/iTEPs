@@ -1,6 +1,15 @@
 %% Preprocessing pipeline for ITEPS conserving TMS pulse and emplying detrending
 
-%Pipeline:
+% DRCMR 2025
+
+
+% --> GENERAL INFO:
+% The current preprocessing pieplpile is intended to provide a simple and fast eeg
+% preprocessing focusing on the essential steps. The preprocessing might be
+% sufficient to explore iTEPS in datasets non contaminated with large
+% muscular (or other type of) artefacts.
+
+% ---> STEPS:
 % 1. Add paths
 % 2. Load data
 % 3. Epoch
@@ -11,6 +20,18 @@
 % 8. Reject bad trials and channels
 % 9. Gauss window smooth
 % 10. Save 
+
+
+% --> EXTERNAL TOOLS TO INSTALL
+% EEGlab and Fieltrip are NOT distributed with this code. Install them
+% on your system and add the paths to matlab.
+
+% EEGLAB install:  https://eeglab.org/tutorials/01_Install/Install.html
+% -- Once EEglab installed, you will need to download the TESA plugin. From
+% the eeglab interface go to : FILE-->MANAGE EEGLAB EXTENSIONS--> SEARCH TESA TOOLBOX AND INSTALL.
+
+% The detrending tools necessary can be found on the Functions/ folder.
+
 
 %% 1. Add paths 
 clear all;
