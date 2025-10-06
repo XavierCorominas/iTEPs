@@ -15,6 +15,8 @@ In the case the TMS pulse artifact wants to be conserved in the dataset, a **sim
 
 In the case the TMS pulse artifact wants to be removed from the dataset, a **basic preprocessing** (e.g., **preprocessing_basic.m**) is necessary and sufficient when TMS-EEG data is not contaminated with large physiological and non-physiological artifacts, and iTEPS are visible during evoked responses observed online during TMS experiments. A **advanced preprocessing** (e.g., **preprocessing_advanced.m**) is necessary and sufficient when TMS-EEG data is contaminated with large muscular or other types of artifacts overimposing to the iTEPS.
 
+![eeg](https://github.com/user-attachments/assets/088f3c75-3389-4539-8fe7-463d663d705a)
+
 For more information about iTEPS, please see:
 
 https://www.brainstimjrnl.com/article/S1935-861X(24)00114-1/fulltext
