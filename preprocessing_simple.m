@@ -1,6 +1,6 @@
 %% Preprocessing pipeline for early iTEPs conserving the TMS pulse
 
-% DRCMR 2025 
+% DRCMR 2025 - YS - BrainStim Methods group
 
 % --> GENERAL INFO:
 % The current preprocessing pieplpile is intended to provide a simple and fast eeg
