@@ -2,7 +2,7 @@
 
 % DRCMR 2025 - XCT - BrainStim Methods group
 
-% Preprocessing pipeline OPTION 2 - ADVANCED
+% Preprocessing pipeline  ADVANCED
 
 % The preprocessing is inspired in the following references:
 %https://www.sciencedirect.com/science/article/pii/S2666166725000280?via%3Dihub
