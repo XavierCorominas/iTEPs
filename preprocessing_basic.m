@@ -2,7 +2,7 @@
 
 % DRCMR 2025 - XCT - BrainStim Methods group
 
-% Preprocessing pipeline OPTION 1 - BASIC
+% Preprocessing pipeline BASIC
 
 
 % --> GENERAL INFO:
