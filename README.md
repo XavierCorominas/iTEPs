@@ -2,7 +2,7 @@
 
 **Repository under construction**.
 
-Yufei Song, Xavier Corominas, Lasse Christiansen
+**Yufei Song, Xavier Corominas, Lasse Christiansen**
 
 
 
