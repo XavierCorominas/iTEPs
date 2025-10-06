@@ -1,6 +1,6 @@
 # **TMS-EEG Preprocessing Pipelines for iTEPS**
 
-
+Yufei Song, Lasse Christiansen, Xavier Corominas
 **Repository under construction**.
 
 
